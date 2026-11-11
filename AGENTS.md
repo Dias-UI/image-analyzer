@@ -1,0 +1,6 @@
+# Using the image analyzer
+
+When a user asks an agent to use this application, read HEADLESS.md and use analyze_cli.py. Before running, determine: input images or folders; model (local Qwen 3.6 35B A3B, local Gemma E4B, or Gemini 3.1 Flash Lite via OpenRouter); translation on/off; whether to reverse-geocode GPS; and output workbook and sheet. Ask one concise combined question only for choices or paths that cannot reasonably be inferred from the current request or established session preferences. Respect choices already given. Use session preferences for the current session; do not claim persistent memory or save preferences unless asked. For Gemini use --provider openrouter --model google/gemini-3.1-flash-lite; translation is off unless --translate is given; --geocode requires a key and sends coordinates to Google.
+
+The CLI appends rows and reports paths/errors as JSON; it does not update existing pending rows or return full analysis in JSON. Inspect the requested workbook and arrange an appropriate update separately if the user asks to replace existing entries; avoid duplicates. Do not fabricate results when a server, key, network access, or filesystem permission is unavailable. Tell the user what failed and how to resolve it. Do not expose API keys.
+
